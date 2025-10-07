@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+  --primary: 0 0% 9%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 96.1%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 0 0% 96.1%;
+  --muted-foreground: 0 0% 45.1%;
+  --accent: 0 0% 96.1%;
+  --accent-foreground: 0 0% 9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 0 0% 3.9%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  @keyframes border-glow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-border-glow {
+    position: relative;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)),
+      hsl(var(--accent)),
+      hsl(var(--secondary)),
+      hsl(var(--primary))
+    );
+    background-size: 200% 200%;
+    animation: border-glow 3s ease infinite;
+  }
+
+  .skill-card {
+    position: relative;
+    border: 0;
+    background: linear-gradient(
+      hsl(var(--card)),
+      hsl(var(--card))
+    ) padding-box,
+    linear-gradient(
+      90deg,
+      hsl(270 70% 60%),
+      hsl(200 70% 60%),
+      hsl(120 70% 60%),
+      hsl(270 70% 60%)
+    ) border-box;
+    border: 2px solid transparent;
+    background-size: 200% 200%;
+    animation: border-glow 4s ease infinite;
+  }
+
+  .skill-card:hover {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+  }
+
+  /* Clases para animaciones de scroll */
+  .scroll-animate {
+    opacity: 0;
+  }
+
+  .scroll-animate.animate-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .scroll-fade {
+    opacity: 0;
+  }
+
+  .scroll-fade.animate-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .scroll-slide-left {
+    opacity: 0;
+  }
+
+  .scroll-slide-left.animate-in {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .scroll-slide-right {
+    opacity: 0;
+  }
+
+  .scroll-slide-right.animate-in {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .scroll-scale {
+    opacity: 0;
+  }
+
+  .scroll-scale.animate-in {
+    animation: scaleIn 0.8s ease-out forwards;
+  }
+
+  /* Delays para animaciones escalonadas */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+
+  /* Animación de gradiente para Hero Section */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .hero-gradient {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsl(220 70% 95%) 50%,
+      hsl(280 70% 95%) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  .dark .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsl(220 30% 15%) 50%,
+      hsl(280 30% 15%) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  /* Patrón de puntos futurista */
+  .hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      hsl(var(--primary) / 0.1) 1px,
+      transparent 0
+    );
+    background-size: 40px 40px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Efecto de resplandor orbital */
+  .hero-gradient::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(
+      circle,
+      hsl(270 70% 60% / 0.15) 0%,
+      transparent 70%
+    );
+    transform: translate(-50%, -50%);
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .dark .hero-gradient::after {
+    background: radial-gradient(
+      circle,
+      hsl(270 70% 50% / 0.2) 0%,
+      transparent 70%
+    );
+  }
+}
