@@ -8,7 +8,7 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { 
   Mail, 
   Phone, 
-  MapPin, 
+  MapPin,
   Github, 
   Linkedin, 
   Code,
@@ -154,7 +154,7 @@ function App() {
                     Nos encargamos de actualizar y crear nuevas interfaces tanto en los sistemas internos como para el público.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['AngularJS', 'Angular 14', 'NestJS', 'MySQL', 'Oracle', 'PHP', 'Bootstrap'].map((tech) => (
+                    {['AngularJS', 'Angular 14', 'NestJS', 'MySQL','PostgreSQL', 'PHP', 'Bootstrap'].map((tech) => (
                       <Badge key={tech} variant="outline">{tech}</Badge>
                     ))}
                   </div>
@@ -178,7 +178,7 @@ function App() {
                     de los sistemas ya en producción y la creación de nuevos sistemas para mejorar la efectividad de los empleados.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['MySQL', 'Angular 17', 'TailwindCSS', 'Firebase'].map((tech) => (
+                    {['MySQL','SQL Server', 'Angular 17','React + Vite', 'TailwindCSS', 'Firebase','Pandas py','Node.js'].map((tech) => (
                       <Badge key={tech} variant="outline">{tech}</Badge>
                     ))}
                   </div>
@@ -198,10 +198,10 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
-                    Proyecto de e-commerce aún en construcción, dejado en stop con el propietario.
+                    Proyecto de e-commerce, dejado en stop por decision del propietario.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Angular 16', 'CSS3'].map((tech) => (
+                    {['Next.js', 'NextUI','Express','PostgreSQL','JWT'].map((tech) => (
                       <Badge key={tech} variant="outline">{tech}</Badge>
                     ))}
                   </div>
@@ -257,7 +257,7 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {['React.js', 'Angular 10+', 'AngularJS', 'Next.js', 'HTML/CSS', 'TailwindCSS', 'Material UI', 'Bootstrap', 'Chart.js', 'Redux', 'TypeScript'].map((skill) => (
+                    {['React.js', 'Angular 10+', 'AngularJS', 'Next.js', 'HTML/CSS', 'TailwindCSS', 'Material UI', 'Bootstrap', 'Chart.js', 'TypeScript'].map((skill) => (
                       <Badge key={skill} variant="outline">{skill}</Badge>
                     ))}
                   </div>
@@ -274,7 +274,7 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {['Node.js', 'NestJS', 'Express', 'JWT', 'PHP', 'Laravel 9', 'C#', 'ASP.NET', 'Spring Boot', 'Prisma ORM', 'Sequelize'].map((skill) => (
+                    {['Node.js', 'NestJS', 'Express','JWT', 'PHP', 'C#', 'ASP.NET', 'Prisma ORM', 'Sequelize','Type ORM'].map((skill) => (
                       <Badge key={skill} variant="outline">{skill}</Badge>
                     ))}
                   </div>
@@ -291,7 +291,7 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {['Kotlin', 'Jetpack Compose', 'XML', 'Ionic', 'Ionic-Angular'].map((skill) => (
+                    {['React Native','Expo','flutter','ionic'].map((skill) => (
                       <Badge key={skill} variant="outline">{skill}</Badge>
                     ))}
                   </div>
@@ -308,13 +308,13 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {['MySQL', 'PostgreSQL', 'SQL Server', 'MongoDB', 'Oracle'].map((skill) => (
+                    {['MySQL', 'PostgreSQL', 'SQL Server', 'MongoDB','Redis'].map((skill) => (
                       <Badge key={skill} variant="outline">{skill}</Badge>
                     ))}
                   </div>
                 </CardContent>
               </Card>
-
+              
               {/* Cloud & Deployment */}
               <Card className="skill-card">
                 <CardHeader>
@@ -325,7 +325,7 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {['Vercel', 'Railway', 'Azure', 'AWS', 'CPanel'].map((skill) => (
+                    {['Vercel', 'Railway', 'Azure', 'AWS', 'CPanel','Docker'].map((skill) => (
                       <Badge key={skill} variant="outline">{skill}</Badge>
                     ))}
                   </div>
