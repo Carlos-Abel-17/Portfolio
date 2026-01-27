@@ -7,7 +7,7 @@ export function useScrollEffects() {
 
   useEffect(() => {
     let ticking = false
-    let scrollTimeout: NodeJS.Timeout
+    let scrollTimeout: ReturnType<typeof setTimeout> | undefined
 
     const handleScroll = () => {
       if (!ticking) {
