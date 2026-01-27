@@ -22,6 +22,7 @@ import {
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 // import { useScrollEffects } from '@/hooks/useScrollEffects'
 import { ScrollProgress } from '@/components/scroll-progress'
+import { ParticlesBackground } from '@/components/particles-background'
 
 function App() {
   const [activeSection, setActiveSection] = useState('about')
@@ -317,8 +318,11 @@ function App() {
       <Separator />
 
       {/* Skills Section */}
-      <section id="skills" className="py-16">
-        <div className="container mx-auto px-4">
+      <section id="skills" className="py-16 relative overflow-visible min-h-[800px]">
+        {/* Partículas de fondo */}
+        <ParticlesBackground particleCount={120} className="" />
+        
+        <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center scroll-zoom-in">
               <Code className="h-8 w-8 mr-3" />
