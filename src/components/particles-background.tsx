@@ -98,10 +98,12 @@ export function ParticlesBackground({
       const mouse = mouseRef.current
       const mouseRadius = 100 // Radio de influencia del mouse
 
-      // Verificar que hay partículas
+      // Verificar que hay partículas, si no hay, recrearlas
       if (particles.length === 0) {
-        console.warn('No hay partículas para animar')
-        return
+        console.warn('No hay partículas, recreando...')
+        resizeCanvas()
+        createParticles()
+        // Continuar animación aunque no haya partículas aún
       }
 
       particles.forEach((particle) => {
@@ -134,9 +136,18 @@ export function ParticlesBackground({
           particle.vy = (particle.vy / speed) * maxSpeed
         }
 
-        // Aplicar fricción suave
-        particle.vx *= 0.98
-        particle.vy *= 0.98
+        // Aplicar fricción suave pero mantener movimiento mínimo
+        particle.vx *= 0.99
+        particle.vy *= 0.99
+
+        // Asegurar velocidad mínima para mantener movimiento
+        const minSpeed = 0.1
+        const currentSpeed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy)
+        if (currentSpeed < minSpeed && currentSpeed > 0) {
+          const angle = Math.atan2(particle.vy, particle.vx)
+          particle.vx = Math.cos(angle) * minSpeed
+          particle.vy = Math.sin(angle) * minSpeed
+        }
 
         // Actualizar posición
         particle.x += particle.vx
@@ -206,8 +217,8 @@ export function ParticlesBackground({
           particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
+            vx: (Math.random() - 0.5) * 0.8,
+            vy: (Math.random() - 0.5) * 0.8,
             radius: Math.random() * 2 + 2, // Tamaño más grande
             color: colors[Math.floor(Math.random() * colors.length)],
             opacity: Math.random() * 0.3 + 0.7 // Opacidad más alta
