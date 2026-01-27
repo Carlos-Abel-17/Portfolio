@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -10,7 +10,7 @@ import {
   Phone, 
   MapPin,
   Github, 
-  Linkedin, 
+  // Linkedin, 
   Code,
   Database,
   Smartphone,
@@ -20,10 +20,24 @@ import {
   GraduationCap
 } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+// import { useScrollEffects } from '@/hooks/useScrollEffects'
+import { ScrollProgress } from '@/components/scroll-progress'
 
 function App() {
   const [activeSection, setActiveSection] = useState('about')
+  const [navbarScrolled, setNavbarScrolled] = useState(false)
   useScrollAnimation()
+  // useScrollEffects() // Desactivado - efectos parallax removidos
+
+  // Efecto para navbar al hacer scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setNavbarScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll() // Inicializar
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId)
@@ -35,8 +49,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b z-50">
+      <nav className={`fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 transition-all duration-300 ${
+        navbarScrolled ? 'navbar-scrolled shadow-lg' : ''
+      }`}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -73,8 +90,70 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="about" className="pt-20 pb-16 hero-gradient overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
+      <section id="about" className="min-h-screen hero-gradient overflow-hidden flex items-center justify-center pt-20 relative">
+        {/* Efectos futuristas adicionales */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Glow 1 - Esquina superior izquierda */}
+          <div 
+            className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl animate-pulse-glow glow-purple"
+            style={{
+              animation: 'pulse-glow 4s ease-in-out infinite'
+            }}
+          ></div>
+          
+          {/* Glow 2 - Esquina inferior derecha */}
+          <div 
+            className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl animate-pulse-glow glow-blue"
+            style={{
+              animation: 'pulse-glow 5s ease-in-out infinite 1s'
+            }}
+          ></div>
+          
+          {/* Glow 3 - Centro */}
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-float glow-center"
+          ></div>
+          
+          {/* Formas geométricas flotantes */}
+          <div 
+            className="absolute top-20 left-10 w-32 h-32 border-2 rotate-45 animate-rotate-slow"
+            style={{
+              borderColor: 'hsl(270 70% 60% / 0.3)',
+              animation: 'rotate-slow 20s linear infinite'
+            }}
+          ></div>
+          <div 
+            className="absolute bottom-20 right-10 w-24 h-24 border-2 rotate-12 animate-rotate-slow"
+            style={{
+              borderColor: 'hsl(200 70% 60% / 0.3)',
+              animation: 'rotate-slow 15s linear infinite reverse'
+            }}
+          ></div>
+          <div 
+            className="absolute top-1/3 right-20 w-16 h-16 border-2 rotate-45 animate-rotate-slow"
+            style={{
+              borderColor: 'hsl(270 70% 50% / 0.2)',
+              animation: 'rotate-slow 25s linear infinite'
+            }}
+          ></div>
+          
+          {/* Partículas flotantes */}
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 rounded-full blur-sm"
+              style={{
+                backgroundColor: `hsl(${270 + i * 20} 70% 60% / 0.4)`,
+                left: `${15 + i * 15}%`,
+                top: `${20 + (i % 3) * 30}%`,
+                animation: `particles-float ${8 + i * 2}s ease-in-out infinite`,
+                animationDelay: `${i * 0.5}s`
+              }}
+            ></div>
+          ))}
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10 w-full">
           <div className="max-w-4xl mx-auto text-center">
             <Avatar className="h-32 w-32 mx-auto mb-6">
               <AvatarFallback className="text-2xl">CA</AvatarFallback>
@@ -114,12 +193,12 @@ function App() {
                   GitHub
                 </a>
               </Button>
-              <Button variant="outline" size="sm" asChild>
+              {/* <Button variant="outline" size="sm" asChild>
                 <a href="https://www.linkedin.com/in/abel-aguado-ramos-37377027b/" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="h-4 w-4 mr-2" />
                   LinkedIn
                 </a>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
@@ -128,10 +207,10 @@ function App() {
       <Separator />
 
       {/* Experience Section */}
-      <section id="experience" className="py-16">
+      <section id="experience" className="py-16 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center">
+            <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center scroll-zoom-in">
               <Briefcase className="h-8 w-8 mr-3" />
               Experiencia Laboral
             </h2>
@@ -241,14 +320,14 @@ function App() {
       <section id="skills" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center">
+            <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center scroll-zoom-in">
               <Code className="h-8 w-8 mr-3" />
               Habilidades Técnicas
             </h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Frontend */}
-              <Card className="skill-card">
+              <Card className="skill-card scroll-bounce">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Globe className="h-5 w-5 mr-2" />
@@ -265,7 +344,7 @@ function App() {
               </Card>
 
               {/* Backend */}
-              <Card className="skill-card">
+              <Card className="skill-card scroll-bounce delay-100">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Database className="h-5 w-5 mr-2" />
@@ -282,7 +361,7 @@ function App() {
               </Card>
 
               {/* Mobile */}
-              <Card className="skill-card">
+              <Card className="skill-card scroll-bounce delay-200">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Smartphone className="h-5 w-5 mr-2" />
@@ -299,7 +378,7 @@ function App() {
               </Card>
 
               {/* Databases */}
-              <Card className="skill-card">
+              <Card className="skill-card scroll-bounce delay-300">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Database className="h-5 w-5 mr-2" />
@@ -316,7 +395,7 @@ function App() {
               </Card>
               
               {/* Cloud & Deployment */}
-              <Card className="skill-card">
+              <Card className="skill-card scroll-bounce delay-400">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Globe className="h-5 w-5 mr-2" />
@@ -333,7 +412,7 @@ function App() {
               </Card>
 
               {/* Soft Skills */}
-              <Card className="skill-card">
+              <Card className="skill-card scroll-bounce delay-500">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Users className="h-5 w-5 mr-2" />
@@ -359,7 +438,7 @@ function App() {
       <section id="projects" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center">
+            <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center scroll-zoom-in">
               <Code className="h-8 w-8 mr-3" />
               Proyectos Destacados
             </h2>
@@ -370,7 +449,7 @@ function App() {
                 <CardHeader>
                   <CardTitle>ERP - FRESOMAC.SAC</CardTitle>
                   <CardDescription>Abril 2022 - Agosto 2022</CardDescription>
-                </CardHeader>
+                </CardHeader> 
                 <CardContent>
                   <p className="text-muted-foreground mb-4">
                     Proyecto realizado con el fin de mejorar los registros de entradas y salidas de piezas de las maquinarias.
@@ -411,7 +490,7 @@ function App() {
       <section id="education" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center">
+            <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center scroll-zoom-in">
               <GraduationCap className="h-8 w-8 mr-3" />
               Educación
             </h2>
@@ -532,12 +611,12 @@ function App() {
                   Enviar Email
                 </a>
               </Button>
-              <Button variant="outline" asChild>
+              {/* <Button variant="outline" asChild>
                 <a href="https://www.linkedin.com/in/abel-aguado-ramos-37377027b/" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="h-4 w-4 mr-2" />
                   LinkedIn
                 </a>
-              </Button>
+              </Button> */}
             </div>
           </div>
       </div>
