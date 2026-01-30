@@ -22,8 +22,13 @@ import {
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 // import { useScrollEffects } from '@/hooks/useScrollEffects'
 import { ScrollProgress } from '@/components/scroll-progress'
-import { ParticlesBackground } from '@/components/particles-background'
+// import { ParticlesBackground } from '@/components/particles-background'
 import { CustomCursor } from '@/components/custom-cursor'
+import { HeroScene3D } from '@/components/hero-scene-3d'
+import { SkillsScene3D } from '@/components/skills-scene-3d'
+import { ProjectsScene3D } from '@/components/projects-scene-3d'
+import { ContactScene3D } from '@/components/contact-scene-3d'
+import { CurtainRevealSection } from './components/curtain-reveal-section'
 
 function App() {
   const [activeSection, setActiveSection] = useState('about')
@@ -155,6 +160,7 @@ function App() {
             ></div>
           ))}
         </div>
+        <HeroScene3D />
 
         <div className="container mx-auto px-4 relative z-10 w-full">
           <div className="max-w-4xl mx-auto text-center">
@@ -321,9 +327,7 @@ function App() {
 
       {/* Skills Section */}
       <section id="skills" className="py-16 relative overflow-visible min-h-[800px]">
-        {/* Partículas de fondo */}
-        <ParticlesBackground particleCount={120} className="" />
-        
+        <SkillsScene3D />
         <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center scroll-zoom-in">
@@ -441,8 +445,9 @@ function App() {
       <Separator />
 
       {/* Projects Section */}
-      <section id="projects" className="py-16">
-        <div className="container mx-auto px-4">
+      <section id="projects" className="py-16 relative overflow-hidden min-h-[700px]">
+        <ProjectsScene3D />
+        <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center scroll-zoom-in">
               <Code className="h-8 w-8 mr-3" />
@@ -576,8 +581,9 @@ function App() {
       <Separator />
 
       {/* Contact Section */}
-      <section id="contact" className="py-16">
-        <div className="container mx-auto px-4">
+      <section id="contact" className="py-16 relative overflow-hidden min-h-[500px]">
+        <ContactScene3D />
+        <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-8">¿Trabajamos juntos?</h2>
             <p className="text-lg text-muted-foreground mb-8">
@@ -628,14 +634,16 @@ function App() {
       </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground">
-            © 2025 Carlos Abel Aguado Ramos. Desarrollado con React + shadcn/ui
-        </p>
-      </div>
-      </footer>
+      {/* Telón que se levanta al hacer scroll y revela el footer */}
+      <CurtainRevealSection>
+        <footer className="border-t py-12 px-4">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-muted-foreground">
+              © 2025 Carlos Abel Aguado Ramos. Desarrollado con React + shadcn/ui
+            </p>
+          </div>
+        </footer>
+      </CurtainRevealSection>
     </div>
   )
 }
