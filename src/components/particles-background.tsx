@@ -112,14 +112,14 @@ export function ParticlesBackground({
         const dy = mouse.y - particle.y
         const distance = Math.sqrt(dx * dx + dy * dy)
 
-        // Si el mouse está cerca, repeler la partícula
+        // Si el mouse está cerca, repeler la partícula (sin ocultar el cursor)
         if (distance < mouseRadius && distance > 0) {
           const force = (mouseRadius - distance) / mouseRadius
           const angle = Math.atan2(dy, dx)
           
-          // Aplicar fuerza de repulsión
-          particle.vx -= Math.cos(angle) * force * 0.1
-          particle.vy -= Math.sin(angle) * force * 0.1
+          // Aplicar fuerza de repulsión más visible
+          particle.vx -= Math.cos(angle) * force * 0.8
+          particle.vy -= Math.sin(angle) * force * 0.8
           
           // Aumentar opacidad cuando está cerca del mouse
           particle.opacity = Math.min(1, particle.opacity + force * 0.1)
@@ -304,12 +304,6 @@ export function ParticlesBackground({
           cursor: 'default',
           width: '100%',
           height: '100%'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.cursor = 'none'
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.cursor = 'default'
         }}
       />
     </div>

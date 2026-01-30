@@ -23,6 +23,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 // import { useScrollEffects } from '@/hooks/useScrollEffects'
 import { ScrollProgress } from '@/components/scroll-progress'
 import { ParticlesBackground } from '@/components/particles-background'
+import { CustomCursor } from '@/components/custom-cursor'
 
 function App() {
   const [activeSection, setActiveSection] = useState('about')
@@ -50,6 +51,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background">
+      <CustomCursor />
       <ScrollProgress />
       {/* Navigation */}
       <nav className={`fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 transition-all duration-300 ${

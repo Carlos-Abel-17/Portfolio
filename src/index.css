@@ -53,6 +53,21 @@
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
+  /* Cursor personalizado </> en toda la página */
+  body.custom-cursor-active {
+    cursor: none;
+  }
+  body.custom-cursor-active * {
+    cursor: none;
+  }
+}
+
+.custom-cursor-pointer {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 99999;
+  transition: transform 0.05s ease-out;
 }
 
 @layer utilities {
