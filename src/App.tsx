@@ -29,6 +29,7 @@ import { SkillsScene3D } from '@/components/skills-scene-3d'
 import { ProjectsScene3D } from '@/components/projects-scene-3d'
 import { ContactScene3D } from '@/components/contact-scene-3d'
 import { CurtainRevealSection } from './components/curtain-reveal-section'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 function App() {
   const [activeSection, setActiveSection] = useState('about')
@@ -644,6 +645,7 @@ function App() {
           </div>
         </footer>
       </CurtainRevealSection>
+      <SpeedInsights />
     </div>
   )
 }
