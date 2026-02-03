@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Si añades sitemap.xml más adelante, descomenta y ajusta la URL:
+# Sitemap: https://www.abelaguadodev.work/sitemap.xml

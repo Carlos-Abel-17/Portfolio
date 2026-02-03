@@ -59,7 +59,7 @@ function App() {
       <CustomCursor />
       <ScrollProgress />
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 transition-all duration-300 ${
+      <nav aria-label="Navegación principal" className={`fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 transition-all duration-300 ${
         navbarScrolled ? 'navbar-scrolled shadow-lg' : ''
       }`}>
         <div className="container mx-auto px-4 py-4">
@@ -164,7 +164,7 @@ function App() {
 
         <div className="container mx-auto px-4 relative z-10 w-full">
           <div className="max-w-4xl mx-auto text-center">
-            <Avatar className="h-32 w-32 mx-auto mb-6">
+            <Avatar className="h-32 w-32 mx-auto mb-6" aria-hidden="true">
               <AvatarFallback className="text-2xl">CA</AvatarFallback>
             </Avatar>
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
