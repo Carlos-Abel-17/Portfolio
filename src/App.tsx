@@ -69,7 +69,9 @@ function App() {
               <Avatar className="h-8 w-8">
                 <AvatarFallback>CA</AvatarFallback>
               </Avatar>
-              <span className="font-bold text-lg">Carlos Abel Aguado</span>
+             {/*
+             <span className="font-bold text-lg">Carlos Abel Aguado</span>
+             */} 
             </div>
             <div className="flex items-center space-x-4">
               <div className="hidden md:flex space-x-6">
@@ -175,8 +177,7 @@ function App() {
               Desarrollador Full Stack
             </p>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              +3 años de experiencia desarrollando aplicaciones web y móviles. 
-              Especializado en Angular, React, Node.js y bases de datos.
+              4 años de experiencia desarrollando frontend, backend y bases de datos.
             </p>
             
             {/* Contact Info */}
