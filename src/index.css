@@ -607,14 +607,6 @@
     animation: bounceOut 0.8s ease-out forwards;
   }
 
-  /* Efectos parallax */
-  .parallax-slow,
-  .parallax-fast,
-  .parallax-reverse {
-    will-change: transform;
-    transition: transform 0.1s ease-out;
-  }
-
   /* Navbar con efecto de scroll */
   .navbar-scrolled {
     background: hsl(var(--background) / 0.95);

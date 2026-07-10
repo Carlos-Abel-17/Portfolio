@@ -10,32 +10,39 @@ import {
   Phone, 
   MapPin,
   Github, 
-  // Linkedin, 
   Code,
   Database,
-  Smartphone,
   Globe,
+  Server,
   Users,
   Briefcase,
   GraduationCap
 } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-// import { useScrollEffects } from '@/hooks/useScrollEffects'
 import { ScrollProgress } from '@/components/scroll-progress'
-// import { ParticlesBackground } from '@/components/particles-background'
 import { CustomCursor } from '@/components/custom-cursor'
-import { HeroScene3D } from '@/components/hero-scene-3d'
 import { SkillsScene3D } from '@/components/skills-scene-3d'
 import { ProjectsScene3D } from '@/components/projects-scene-3d'
 import { ContactScene3D } from '@/components/contact-scene-3d'
 import { CurtainRevealSection } from './components/curtain-reveal-section'
 import { SpeedInsights } from '@vercel/speed-insights/react'
+import { ExperienceCard } from '@/components/experience-card'
+import { ExperienceModal } from '@/components/experience-modal'
+import { ProjectCard } from '@/components/project-card'
+import { ProjectModal } from '@/components/project-modal'
+import { experiences } from '@/data/experiences'
+import { projects } from '@/data/projects'
+import type { Experience } from '@/types/experience'
+import type { Project } from '@/types/project'
 
 function App() {
   const [activeSection, setActiveSection] = useState('about')
   const [navbarScrolled, setNavbarScrolled] = useState(false)
+  const [selectedExperience, setSelectedExperience] = useState<Experience | null>(null)
+  const [experienceModalOpen, setExperienceModalOpen] = useState(false)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [projectModalOpen, setProjectModalOpen] = useState(false)
   useScrollAnimation()
-  // useScrollEffects() // Desactivado - efectos parallax removidos
 
   // Efecto para navbar al hacer scroll
   useEffect(() => {
@@ -69,9 +76,6 @@ function App() {
               <Avatar className="h-8 w-8">
                 <AvatarFallback>CA</AvatarFallback>
               </Avatar>
-             {/*
-             <span className="font-bold text-lg">Carlos Abel Aguado</span>
-             */} 
             </div>
             <div className="flex items-center space-x-4">
               <div className="hidden md:flex space-x-6">
@@ -124,46 +128,7 @@ function App() {
           <div 
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-float glow-center"
           ></div>
-          
-          {/* Formas geométricas flotantes */}
-          <div 
-            className="absolute top-20 left-10 w-32 h-32 border-2 rotate-45 animate-rotate-slow"
-            style={{
-              borderColor: 'hsl(270 70% 60% / 0.3)',
-              animation: 'rotate-slow 20s linear infinite'
-            }}
-          ></div>
-          <div 
-            className="absolute bottom-20 right-10 w-24 h-24 border-2 rotate-12 animate-rotate-slow"
-            style={{
-              borderColor: 'hsl(200 70% 60% / 0.3)',
-              animation: 'rotate-slow 15s linear infinite reverse'
-            }}
-          ></div>
-          <div 
-            className="absolute top-1/3 right-20 w-16 h-16 border-2 rotate-45 animate-rotate-slow"
-            style={{
-              borderColor: 'hsl(270 70% 50% / 0.2)',
-              animation: 'rotate-slow 25s linear infinite'
-            }}
-          ></div>
-          
-          {/* Partículas flotantes */}
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 rounded-full blur-sm"
-              style={{
-                backgroundColor: `hsl(${270 + i * 20} 70% 60% / 0.4)`,
-                left: `${15 + i * 15}%`,
-                top: `${20 + (i % 3) * 30}%`,
-                animation: `particles-float ${8 + i * 2}s ease-in-out infinite`,
-                animationDelay: `${i * 0.5}s`
-              }}
-            ></div>
-          ))}
         </div>
-        <HeroScene3D />
 
         <div className="container mx-auto px-4 relative z-10 w-full">
           <div className="max-w-4xl mx-auto text-center">
@@ -204,12 +169,6 @@ function App() {
                   GitHub
                 </a>
               </Button>
-              {/* <Button variant="outline" size="sm" asChild>
-                <a href="https://www.linkedin.com/in/abel-aguado-ramos-37377027b/" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="h-4 w-4 mr-2" />
-                  LinkedIn
-                </a>
-              </Button> */}
             </div>
           </div>
         </div>
@@ -227,100 +186,23 @@ function App() {
             </h2>
             
             <div className="space-y-8">
-              {/* Villa Salud */}
-              <Card className="scroll-animate">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <CardTitle className="text-xl">Desarrollador Full Stack</CardTitle>
-                      <CardDescription className="text-lg">VILLASALUD - Clínica</CardDescription>
-                    </div>
-                    <Badge variant="secondary">Jul 2024 - Actual</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Trabajo como desarrollador full stack junto a un grupo de 3 programadores más. 
-                    Nos encargamos de actualizar y crear nuevas interfaces tanto en los sistemas internos como para el público.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['AngularJS', 'Angular 14', 'NestJS', 'MySQL','PostgreSQL', 'PHP', 'Bootstrap'].map((tech) => (
-                      <Badge key={tech} variant="outline">{tech}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* ODISEC */}
-              <Card className="scroll-animate delay-100">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <CardTitle className="text-xl">Desarrollador Full Stack</CardTitle>
-                      <CardDescription className="text-lg">ODISEC - Mercadeo y Servicios</CardDescription>
-                    </div>
-                    <Badge variant="secondary">Oct 2023 - Jun 2024</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Empresa encargada de brindar servicios a bancos. Mi labor fue administrar las bases de datos 
-                    de los sistemas ya en producción y la creación de nuevos sistemas para mejorar la efectividad de los empleados.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['MySQL','SQL Server', 'Angular 17','React + Vite', 'TailwindCSS', 'Firebase','Pandas py','Node.js'].map((tech) => (
-                      <Badge key={tech} variant="outline">{tech}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* E-commerce Qhapaq P'acha */}
-              <Card className="scroll-animate delay-200">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <CardTitle className="text-xl">Desarrollador Frontend</CardTitle>
-                      <CardDescription className="text-lg">E-COMMERCE (QHAPAQ P'ACHA)</CardDescription>
-                    </div>
-                    <Badge variant="secondary">Jun 2023 - Ago 2023</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Proyecto de e-commerce, dejado en stop por decision del propietario.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Next.js', 'NextUI','Express','PostgreSQL','JWT'].map((tech) => (
-                      <Badge key={tech} variant="outline">{tech}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Arcade World */}
-              <Card className="scroll-animate delay-300">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <CardTitle className="text-xl">Desarrollador Full Stack</CardTitle>
-                      <CardDescription className="text-lg">E-COMMERCE (ARCADE WORLD)</CardDescription>
-                    </div>
-                    <Badge variant="secondary">Sep 2022 - Nov 2022</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Proyecto realizado con un grupo de 3 programadores usando las mejores prácticas de React.js.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['React + Vite', 'PostgreSQL', 'TailwindCSS', 'JWT', 'Node.js'].map((tech) => (
-                      <Badge key={tech} variant="outline">{tech}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              {experiences.map((experience) => (
+                <ExperienceCard
+                  key={experience.id}
+                  experience={experience}
+                  onClick={() => {
+                    setSelectedExperience(experience)
+                    setExperienceModalOpen(true)
+                  }}
+                />
+              ))}
             </div>
+
+            <ExperienceModal
+              experience={selectedExperience}
+              open={experienceModalOpen}
+              onOpenChange={setExperienceModalOpen}
+            />
           </div>
         </div>
       </section>
@@ -372,25 +254,8 @@ function App() {
                 </CardContent>
               </Card>
 
-              {/* Mobile */}
-              <Card className="skill-card scroll-bounce delay-200">
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Smartphone className="h-5 w-5 mr-2" />
-                    Mobile
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {['React Native','Expo','flutter','ionic'].map((skill) => (
-                      <Badge key={skill} variant="outline">{skill}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
               {/* Databases */}
-              <Card className="skill-card scroll-bounce delay-300">
+              <Card className="skill-card scroll-bounce delay-200">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Database className="h-5 w-5 mr-2" />
@@ -406,12 +271,12 @@ function App() {
                 </CardContent>
               </Card>
               
-              {/* Cloud & Deployment */}
-              <Card className="skill-card scroll-bounce delay-400">
+              {/* DevOps */}
+              <Card className="skill-card scroll-bounce delay-300">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Globe className="h-5 w-5 mr-2" />
-                    Cloud & Deployment
+                    <Server className="h-5 w-5 mr-2" />
+                    DevOps
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -424,7 +289,7 @@ function App() {
               </Card>
 
               {/* Soft Skills */}
-              <Card className="skill-card scroll-bounce delay-500">
+              <Card className="skill-card scroll-bounce delay-400">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Users className="h-5 w-5 mr-2" />
@@ -457,42 +322,23 @@ function App() {
             </h2>
             
             <div className="grid md:grid-cols-2 gap-6">
-              {/* ERP Fresomac */}
-              <Card className="scroll-scale">
-                <CardHeader>
-                  <CardTitle>ERP - FRESOMAC.SAC</CardTitle>
-                  <CardDescription>Abril 2022 - Agosto 2022</CardDescription>
-                </CardHeader> 
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Proyecto realizado con el fin de mejorar los registros de entradas y salidas de piezas de las maquinarias.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Angular 13', 'Chart.js', 'JWT', 'Node.js', 'TypeScript', 'MySQL'].map((tech) => (
-                      <Badge key={tech} variant="outline">{tech}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* CRM Ferrico */}
-              <Card className="scroll-scale delay-100">
-                <CardHeader>
-                  <CardTitle>CRM - FERRICO</CardTitle>
-                  <CardDescription>Julio 2021 - Diciembre 2021</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Proyecto Universitario para la gestión de empresas de ventas.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {['Angular 12', 'C#', 'Entity Framework', 'Swagger', 'TailwindCSS', 'SQL Server'].map((tech) => (
-                      <Badge key={tech} variant="outline">{tech}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              {projects.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  onClick={() => {
+                    setSelectedProject(project)
+                    setProjectModalOpen(true)
+                  }}
+                />
+              ))}
             </div>
+
+            <ProjectModal
+              project={selectedProject}
+              open={projectModalOpen}
+              onOpenChange={setProjectModalOpen}
+            />
           </div>
         </div>
       </section>
@@ -566,13 +412,6 @@ function App() {
                     Realicé una capacitación en Nestjs con duracion de 25 horas a lo largo de 5 semanas con el profesor Fernando Herrara muy reconocido en el mundo de la programcion por su 
                     amplia experiencia en el desarrollo de aplicaciones con Nestjs y muchas mas tecnologias.
                   </p>
-                  {/* <div className="rounded-lg overflow-hidden border border-border mt-4">
-                    <img 
-                      src="/certificado-nestjs-udemy.jpg"
-                      alt="Certificado de Capacitación en NestJS - Udemy" 
-                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div> */}
                 </CardContent>
               </Card>
             </div>
@@ -625,12 +464,6 @@ function App() {
                   Enviar Email
                 </a>
               </Button>
-              {/* <Button variant="outline" asChild>
-                <a href="https://www.linkedin.com/in/abel-aguado-ramos-37377027b/" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="h-4 w-4 mr-2" />
-                  LinkedIn
-                </a>
-              </Button> */}
             </div>
           </div>
       </div>
