@@ -611,7 +611,7 @@
 
   /* Navbar con efecto de scroll */
   .navbar-scrolled {
-    background: hsl(var(--background) / 0.95);
+    background-color: hsl(var(--background));
     backdrop-filter: blur(12px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
