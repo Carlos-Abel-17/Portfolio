@@ -5,9 +5,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { ImageCarousel } from "@/components/ui/image-carousel"
+import { ModalImageGallery } from "@/components/modal-image-gallery"
 import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
 import type { Experience } from "@/types/experience"
 
 interface ExperienceModalProps {
@@ -39,7 +38,7 @@ export function ExperienceModal({
         </DialogHeader>
 
         <div className="space-y-6">
-          <p className="text-sm leading-relaxed text-foreground/90">
+          <p className="whitespace-pre-line text-sm leading-relaxed text-foreground/90">
             {experience.description}
           </p>
 
@@ -51,15 +50,7 @@ export function ExperienceModal({
             ))}
           </div>
 
-          {experience.images.length > 0 && (
-            <>
-              <Separator />
-              <div className="space-y-2">
-                <h4 className="text-sm font-medium">Galería</h4>
-                <ImageCarousel images={experience.images} />
-              </div>
-            </>
-          )}
+          <ModalImageGallery images={experience.images} />
         </div>
       </DialogContent>
     </Dialog>

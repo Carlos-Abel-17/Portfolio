@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, ImageOff } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -13,31 +13,34 @@ export interface CarouselImage {
 interface ImageCarouselProps {
   images: CarouselImage[]
   className?: string
+  onImageError?: (src: string) => void
 }
 
-function CarouselSlide({ image }: { image: CarouselImage }) {
+function CarouselSlide({
+  image,
+  onImageError,
+}: {
+  image: CarouselImage
+  onImageError?: (src: string) => void
+}) {
   const [hasError, setHasError] = useState(false)
 
-  if (hasError) {
-    return (
-      <div className="flex h-56 sm:h-64 w-full flex-col items-center justify-center gap-2 bg-muted text-muted-foreground">
-        <ImageOff className="size-8 opacity-50" />
-        <span className="text-sm">Imagen no disponible</span>
-      </div>
-    )
-  }
+  if (hasError) return null
 
   return (
     <img
       src={image.src}
       alt={image.alt}
       className="h-56 sm:h-64 w-full object-cover"
-      onError={() => setHasError(true)}
+      onError={() => {
+        setHasError(true)
+        onImageError?.(image.src)
+      }}
     />
   )
 }
 
-export function ImageCarousel({ images, className }: ImageCarouselProps) {
+export function ImageCarousel({ images, className, onImageError }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   if (images.length === 0) return null
@@ -55,7 +58,11 @@ export function ImageCarousel({ images, className }: ImageCarouselProps) {
   return (
     <div className={cn("space-y-3", className)}>
       <div className="relative overflow-hidden rounded-lg border bg-muted/30">
-        <CarouselSlide key={currentIndex} image={currentImage} />
+        <CarouselSlide
+          key={currentIndex}
+          image={currentImage}
+          onImageError={onImageError}
+        />
 
         {images.length > 1 && (
           <>

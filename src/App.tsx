@@ -131,44 +131,55 @@ function App() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10 w-full">
-          <div className="max-w-4xl mx-auto text-center">
-            <Avatar className="h-32 w-32 mx-auto mb-6" aria-hidden="true">
-              <AvatarFallback className="text-2xl">CA</AvatarFallback>
-            </Avatar>
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Carlos Abel Aguado Ramos
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-6">
-              Desarrollador Full Stack
-            </p>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              4 años de experiencia desarrollando frontend, backend y bases de datos.
-            </p>
-            
-            {/* Contact Info */}
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4" />
-                <span>+51 983446294</span>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
+            <div className="text-center lg:text-left">
+              <Avatar className="h-10 w-10 mb-6 mx-auto lg:mx-0" aria-hidden="true">
+                <AvatarFallback className="text-sm">CA</AvatarFallback>
+              </Avatar>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                Carlos Abel Aguado Ramos
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-6">
+                Desarrollador Full Stack
+              </p>
+              <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
+                4 años de experiencia desarrollando aplicaciones web y móviles. Especializado en Angular, React, Node.js y bases de datos.
+              </p>
+
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8 text-sm md:text-base">
+                <div className="flex items-center space-x-2">
+                  <Phone className="h-4 w-4 shrink-0" />
+                  <span>+51 983446294</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail className="h-4 w-4 shrink-0" />
+                  <span>aguado170305@gmail.com</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <MapPin className="h-4 w-4 shrink-0" />
+                  <span>Lima, Perú</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4" />
-                <span>aguado170305@gmail.com</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4" />
-                <span>Lima, Perú</span>
+
+              <div className="flex justify-center lg:justify-start">
+                <Button variant="outline" size="sm" asChild>
+                  <a href="https://github.com/Carlos-Abel-17" target="_blank" rel="noopener noreferrer">
+                    <Github className="h-4 w-4 mr-2" />
+                    GitHub
+                  </a>
+                </Button>
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex justify-center space-x-4">
-              <Button variant="outline" size="sm" asChild>
-                <a href="https://github.com/Carlos-Abel-17" target="_blank" rel="noopener noreferrer">
-                  <Github className="h-4 w-4 mr-2" />
-                  GitHub
-                </a>
-              </Button>
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-sm lg:max-w-md">
+                <div className="absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl" aria-hidden="true" />
+                <img
+                  src="/portada.png"
+                  alt="Carlos Abel Aguado Ramos"
+                  className="relative w-full aspect-[3/4] rounded-2xl object-cover object-top shadow-2xl ring-1 ring-border/50"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -7,10 +7,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { ImageCarousel } from "@/components/ui/image-carousel"
+import { ModalImageGallery } from "@/components/modal-image-gallery"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
 import type { Project } from "@/types/project"
 
 interface ProjectModalProps {
@@ -56,15 +55,7 @@ export function ProjectModal({ project, open, onOpenChange }: ProjectModalProps)
             </Button>
           )}
 
-          {project.images.length > 0 && (
-            <>
-              <Separator />
-              <div className="space-y-2">
-                <h4 className="text-sm font-medium">Galería</h4>
-                <ImageCarousel images={project.images} />
-              </div>
-            </>
-          )}
+          <ModalImageGallery images={project.images} />
         </div>
       </DialogContent>
     </Dialog>

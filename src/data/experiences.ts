@@ -8,20 +8,20 @@ export const experiences: Experience[] = [
     companySubtitle: "Clínica",
     period: "Jul 2024 - Actual",
     summary:
-      "Trabajo como desarrollador full stack junto a un grupo de 3 programadores más. Nos encargamos de actualizar y crear nuevas interfaces tanto en los sistemas internos como para el público.",
+      "Trabajo como desarrollador full stack junto a un grupo de 4 programadores más. Nos encargamos de actualizar y crear nuevas interfaces tanto en los sistemas internos como para el público.",
     description:
-      "En VILLASALUD formo parte de un equipo de 4 desarrolladores encargados de modernizar los sistemas de la clínica. Mi aporte se centra en el desarrollo full stack: creación de nuevas interfaces para pacientes y personal interno, migración de módulos legacy en AngularJS hacia Angular 14, y desarrollo de APIs con NestJS conectadas a bases MySQL y PostgreSQL. También participo en la integración de servicios PHP existentes y en la mejora continua de la experiencia de usuario con Bootstrap. Ha sido una experiencia enriquecedora trabajar en un entorno de salud donde cada mejora impacta directamente en la atención al paciente.",
-    technologies: ["AngularJS", "Angular 14", "NestJS", "MySQL", "PostgreSQL", "PHP", "Bootstrap"],
+      "En VillaSalud formo parte de un equipo de 4 programadores. Mi labor principal es innovar en los sistemas internos de la empresa, tanto en el área administrativa como en la operativa.\n\nMis aportes a la fecha:\n• Migración del sistema ERP obsoleto y poco escalable a un ERP nuevo y moderno\n• Integración con el sistema de seguros de salud (EPS)\n• Automatización de procesos rutinarios\n• Implementación de monitoreo de nuestro servidor\n• Impulso del uso de herramientas de IA para mejorar los tiempos de desarrollo\n• Implementación de alertas de errores",
+    technologies: ["AngularJS", "Angular 21", "NestJS", "MySQL", "PostgreSQL", "PHP", "pm2"],
     images: [
       {
-        src: "/img_experiencia/villasalud-1.jpg",
+        src: "/img1_villasalud.jpeg",
         alt: "Interfaz del sistema interno de VILLASALUD",
-        caption: "Panel interno para gestión de citas y pacientes.",
+        caption: "Celebrando el decimotercero aniversario de VillaSalud",
       },
       {
-        src: "/img_experiencia/villasalud-2.jpg",
+        src: "/img2_villasalud.jpeg",
         alt: "Portal público de VILLASALUD",
-        caption: "Portal web orientado al público con información de servicios.",
+        caption: "participando en el evento deportivo de VillaSalud",
       },
     ],
   },
@@ -36,13 +36,7 @@ export const experiences: Experience[] = [
     description:
       "En ODISEC trabajé en proyectos para el sector bancario, donde la estabilidad y el rendimiento son críticos. Administré bases de datos MySQL y SQL Server en producción, optimicé consultas y aseguré la integridad de los datos. Desarrollé nuevas herramientas con Angular 17 y React + Vite para mejorar los flujos de trabajo de los empleados, integrando Firebase para funcionalidades en tiempo real. También utilicé Pandas en Python para análisis de datos y Node.js para servicios backend. Fue una etapa clave para entender cómo operan los sistemas financieros a gran escala.",
     technologies: ["MySQL", "SQL Server", "Angular 17", "React + Vite", "TailwindCSS", "Firebase", "Pandas py", "Node.js"],
-    images: [
-      {
-        src: "/img_experiencia/odisec-1.jpg",
-        alt: "Dashboard de gestión en ODISEC",
-        caption: "Dashboard para monitoreo de operaciones bancarias.",
-      },
-    ],
+    images: [],
     animationDelay: "delay-100",
   },
   {
@@ -69,18 +63,7 @@ export const experiences: Experience[] = [
     description:
       "Arcade World fue mi primer proyecto en equipo como desarrollador full stack. Junto a 3 compañeros construimos un e-commerce de productos gaming desde cero. Me encargué del frontend con React + Vite y TailwindCSS, y del backend con Node.js y PostgreSQL. Implementamos autenticación JWT, gestión de inventario y pasarela de pagos. Aprendí a trabajar con Git en equipo, code reviews y metodologías ágiles básicas. Fue una experiencia formativa que consolidó mis bases en React.",
     technologies: ["React + Vite", "PostgreSQL", "TailwindCSS", "JWT", "Node.js"],
-    images: [
-      {
-        src: "/img_experiencia/arcade-world-1.jpg",
-        alt: "Tienda online Arcade World",
-        caption: "Vista principal de la tienda con catálogo de productos gaming.",
-      },
-      {
-        src: "/img_experiencia/arcade-world-2.jpg",
-        alt: "Panel de administración Arcade World",
-        caption: "Panel de administración para gestión de inventario.",
-      },
-    ],
+    images: [],
     animationDelay: "delay-300",
   },
 ]
