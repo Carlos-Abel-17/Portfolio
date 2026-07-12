@@ -14,15 +14,12 @@ import {
   Database,
   Globe,
   Server,
-  Users,
   Briefcase,
   GraduationCap
 } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { ScrollProgress } from '@/components/scroll-progress'
 import { CustomCursor } from '@/components/custom-cursor'
-import { SkillsScene3D } from '@/components/skills-scene-3d'
-import { ProjectsScene3D } from '@/components/projects-scene-3d'
 import { ContactScene3D } from '@/components/contact-scene-3d'
 import { CurtainRevealSection } from './components/curtain-reveal-section'
 import { SpeedInsights } from '@vercel/speed-insights/react'
@@ -143,7 +140,7 @@ function App() {
                 Desarrollador Full Stack
               </p>
               <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-                4 años de experiencia desarrollando aplicaciones web y móviles. Especializado en Angular, React, Node.js y bases de datos.
+                4 años de experiencia como desarrollador web, no solo cuento con experiencia de Universidad si no que ya en el campo real de esta hermosa carrera, soy un persona muy comprometida y con mucha hambre de aprender.
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8 text-sm md:text-base">
@@ -221,18 +218,17 @@ function App() {
       <Separator />
 
       {/* Skills Section */}
-      <section id="skills" className="py-16 relative overflow-visible min-h-[800px]">
-        <SkillsScene3D />
-        <div className="container mx-auto px-4 relative z-20">
+      <section id="skills" className="py-16 relative overflow-hidden">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center scroll-zoom-in">
               <Code className="h-8 w-8 mr-3" />
               Habilidades Técnicas
             </h2>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {/* Frontend */}
-              <Card className="skill-card scroll-bounce">
+              <Card className="scroll-bounce transition-all duration-300 hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Globe className="h-5 w-5 mr-2" />
@@ -249,7 +245,7 @@ function App() {
               </Card>
 
               {/* Backend */}
-              <Card className="skill-card scroll-bounce delay-100">
+              <Card className="scroll-bounce delay-100 transition-all duration-300 hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Database className="h-5 w-5 mr-2" />
@@ -266,7 +262,7 @@ function App() {
               </Card>
 
               {/* Databases */}
-              <Card className="skill-card scroll-bounce delay-200">
+              <Card className="scroll-bounce delay-200 transition-all duration-300 hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Database className="h-5 w-5 mr-2" />
@@ -283,7 +279,7 @@ function App() {
               </Card>
               
               {/* DevOps */}
-              <Card className="skill-card scroll-bounce delay-300">
+              <Card className="scroll-bounce delay-300 transition-all duration-300 hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Server className="h-5 w-5 mr-2" />
@@ -298,23 +294,6 @@ function App() {
                   </div>
                 </CardContent>
               </Card>
-
-              {/* Soft Skills */}
-              <Card className="skill-card scroll-bounce delay-400">
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Users className="h-5 w-5 mr-2" />
-                    Habilidades Blandas
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {['Trabajo en Equipo', 'Proactivo', 'Comunicación Efectiva', 'Resolución de Problemas', 'Presentación Técnica'].map((skill) => (
-                      <Badge key={skill} variant="outline">{skill}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
@@ -323,9 +302,8 @@ function App() {
       <Separator />
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 relative overflow-hidden min-h-[700px]">
-        <ProjectsScene3D />
-        <div className="container mx-auto px-4 relative z-20">
+      <section id="projects" className="py-16 relative overflow-hidden">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center scroll-zoom-in">
               <Code className="h-8 w-8 mr-3" />

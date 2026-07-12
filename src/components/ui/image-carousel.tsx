@@ -31,7 +31,7 @@ function CarouselSlide({
     <img
       src={image.src}
       alt={image.alt}
-      className="h-56 sm:h-64 w-full object-cover"
+      className="h-56 sm:h-64 w-full object-contain bg-muted"
       onError={() => {
         setHasError(true)
         onImageError?.(image.src)
@@ -57,7 +57,7 @@ export function ImageCarousel({ images, className, onImageError }: ImageCarousel
 
   return (
     <div className={cn("space-y-3", className)}>
-      <div className="relative overflow-hidden rounded-lg border bg-muted/30">
+      <div className="relative overflow-hidden rounded-lg border border-border bg-muted">
         <CarouselSlide
           key={currentIndex}
           image={currentImage}
@@ -90,7 +90,12 @@ export function ImageCarousel({ images, className, onImageError }: ImageCarousel
         )}
       </div>
 
-      <p className="text-sm text-muted-foreground text-center min-h-[2.5rem] px-2">
+      <p
+        className={cn(
+          "text-sm text-muted-foreground text-center px-2",
+          currentImage.caption ? "min-h-[2.5rem]" : "hidden"
+        )}
+      >
         {currentImage.caption}
       </p>
 

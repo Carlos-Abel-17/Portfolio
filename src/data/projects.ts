@@ -20,7 +20,18 @@ export const projects: Project[] = [
       "Cloudflare",
     ],
     url: "https://sst-fiados.abelaguadodev.work/",
-    images: [],
+    images: [
+      {
+        src: "/sst_fiados_1.png",
+        alt: "SST Fiados — vista en modo claro",
+        caption: "",
+      },
+      {
+        src: "/sst_fiados_2.png",
+        alt: "SST Fiados — vista en modo oscuro",
+        caption: "",
+      },
+    ],
   },
   {
     id: "erp-fresomac",

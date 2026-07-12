@@ -24,12 +24,12 @@ export function ExperienceModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="detail-modal-content max-w-2xl">
         <DialogHeader>
-          <DialogTitle className="text-xl">
+          <DialogTitle className="text-xl text-foreground">
             Experiencia en {experience.company}
           </DialogTitle>
-          <DialogDescription className="text-base">
+          <DialogDescription className="text-base text-muted-foreground">
             {experience.role}
             {experience.companySubtitle && ` · ${experience.companySubtitle}`}
             {" · "}

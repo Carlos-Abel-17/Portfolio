@@ -24,7 +24,7 @@ export function ModalImageGallery({ images }: ModalImageGalleryProps) {
     <>
       <Separator />
       <div className="space-y-2">
-        <h4 className="text-sm font-medium">Galería</h4>
+        <h4 className="text-sm font-medium text-foreground">Galería</h4>
         <ImageCarousel images={validImages} onImageError={handleImageError} />
       </div>
     </>

@@ -23,10 +23,10 @@ export function ProjectModal({ project, open, onOpenChange }: ProjectModalProps)
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="detail-modal-content max-w-2xl">
         <DialogHeader>
-          <DialogTitle className="text-xl">{project.title}</DialogTitle>
-          <DialogDescription className="text-base">{project.period}</DialogDescription>
+          <DialogTitle className="text-xl text-foreground">{project.title}</DialogTitle>
+          <DialogDescription className="text-base text-muted-foreground">{project.period}</DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6">

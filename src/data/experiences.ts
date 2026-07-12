@@ -34,8 +34,8 @@ export const experiences: Experience[] = [
     summary:
       "Empresa encargada de brindar servicios a bancos. Mi labor fue administrar las bases de datos de los sistemas ya en producción y la creación de nuevos sistemas para mejorar la efectividad de los empleados.",
     description:
-      "En ODISEC trabajé en proyectos para el sector bancario, donde la estabilidad y el rendimiento son críticos. Administré bases de datos MySQL y SQL Server en producción, optimicé consultas y aseguré la integridad de los datos. Desarrollé nuevas herramientas con Angular 17 y React + Vite para mejorar los flujos de trabajo de los empleados, integrando Firebase para funcionalidades en tiempo real. También utilicé Pandas en Python para análisis de datos y Node.js para servicios backend. Fue una etapa clave para entender cómo operan los sistemas financieros a gran escala.",
-    technologies: ["MySQL", "SQL Server", "Angular 17", "React + Vite", "TailwindCSS", "Firebase", "Pandas py", "Node.js"],
+      "En ODISEC trabajé en proyectos para el sector bancario, donde la estabilidad y el rendimiento son críticos. Fue una etapa clave para entender cómo operan los sistemas financieros a gran escala, especialmente en el tema de préstamos a sus clientes.\n\nMis principales aportes:\n• Administración de bases de datos MySQL y SQL Server en producción\n• Optimización de consultas y aseguramiento de la integridad de los datos\n• Desarrollo de nuevas herramientas con Angular 17 y React + Vite para mejorar los flujos de trabajo de los empleados\n• Integración de Firebase para funcionalidades en tiempo real\n• Análisis de datos con Pandas en Python\n• Desarrollo de servicios backend con Node.js\n• Automatización con Python del envío de correos con documentos y datos extraídos de la base de datos en tiempo real",
+    technologies: ["MySQL", "SQL Server", "Angular 17", "React + Vite", "Python", "Pandas py", "Node.js"],
     images: [],
     animationDelay: "delay-100",
   },
