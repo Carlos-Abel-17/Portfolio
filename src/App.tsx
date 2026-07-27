@@ -15,7 +15,8 @@ import {
   Globe,
   Server,
   Briefcase,
-  GraduationCap
+  GraduationCap,
+  Bot
 } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { ScrollProgress } from '@/components/scroll-progress'
@@ -289,6 +290,23 @@ function App() {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {['Vercel', 'Railway', 'Azure', 'AWS', 'CPanel','Docker'].map((skill) => (
+                      <Badge key={skill} variant="outline">{skill}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Integración IA & Chatbots */}
+              <Card className="scroll-bounce delay-400 transition-all duration-300 hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5 md:col-span-2">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Bot className="h-5 w-5 mr-2" />
+                    Integración IA & Chatbots
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {['Meta API', 'WhatsApp Business API', 'Instagram Messaging API', 'DeepSeek AI', 'Chatbots con IA', 'Automatización de mensajes'].map((skill) => (
                       <Badge key={skill} variant="outline">{skill}</Badge>
                     ))}
                   </div>
