@@ -306,7 +306,7 @@ function App() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {['Meta API', 'WhatsApp Business API', 'Instagram Messaging API', 'DeepSeek AI', 'Chatbots con IA', 'Automatización de mensajes'].map((skill) => (
+                    {['Meta API', 'WhatsApp Business API', 'Instagram Messaging API', 'DeepSeek AI', 'OpenAI API', 'Chatbots con IA', 'Automatización de mensajes'].map((skill) => (
                       <Badge key={skill} variant="outline">{skill}</Badge>
                     ))}
                   </div>
