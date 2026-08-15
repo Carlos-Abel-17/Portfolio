@@ -6,7 +6,7 @@ export const experiences: Experience[] = [
     role: "Desarrollador Full Stack",
     company: "VILLASALUD",
     companySubtitle: "Clínica",
-    period: "Jul 2024 - Actual",
+    period: "Jul 2024 - Ago 2026",
     summary:
       "Trabajo como desarrollador full stack junto a un grupo de 4 programadores más. Nos encargamos de actualizar y crear nuevas interfaces tanto en los sistemas internos como para el público.",
     description:
