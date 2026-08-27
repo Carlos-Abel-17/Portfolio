@@ -8,9 +8,9 @@ export const experiences: Experience[] = [
     companySubtitle: "Publicidad",
     period: "Ago 2026 - Actual",
     summary:
-      "Empresa de publicidad en paneles digitales, lonas y otras formas de publicidad. Desarrollo sistemas integrados con SAP Business One junto a un equipo de 4 programadores.",
+      "Empresa de publicidad en paneles digitales, lonas y otras formas de publicidad con presencia en 4 países: Perú, Ecuador, Panamá y Bolivia. Desarrollo sistemas integrados con SAP Business One junto a un equipo de 4 programadores.",
     description:
-      "En Grupo ALAC formo parte de un equipo de 5 programadores. Mi labor principal es desarrollar e integrar nuevos sistemas con SAP Business One.\n\nMis funciones actuales:\n• Desarrollo de sistemas integrados con SAP Business One\n• Trabajo colaborativo con SAP HANA Studio para gestión de datos\n• Reuniones con directivos de las diferentes áreas para levantar requerimientos\n• Migración de historial de usuarios hacia los nuevos sistemas\n• Desarrollo frontend con Angular 18+\n• Desarrollo backend con Node.js",
+      "En Grupo ALAC formo parte de un equipo de 5 programadores en una empresa con presencia internacional en Perú, Ecuador, Panamá y Bolivia. Mi labor principal es desarrollar e integrar nuevos sistemas con SAP Business One.\n\nMis funciones actuales:\n• Desarrollo de sistemas integrados con SAP Business One\n• Trabajo colaborativo con SAP HANA Studio para gestión de datos\n• Reuniones con directivos de las diferentes áreas para levantar requerimientos\n• Migración de historial de usuarios hacia los nuevos sistemas\n• Desarrollo frontend con Angular 18+\n• Desarrollo backend con Node.js",
     technologies: ["Node.js", "SAP Business One", "SAP HANA Studio", "Angular 18+", "MySQL"],
     images: [],
   },
