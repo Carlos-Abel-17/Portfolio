@@ -8,11 +8,17 @@ export const experiences: Experience[] = [
     companySubtitle: "Publicidad",
     period: "Ago 2026 - Actual",
     summary:
-      "Empresa de publicidad en paneles digitales, lonas y otras formas de publicidad. Desarrollo sistemas integrados con SAP Business One junto a un equipo de 4 programadores.",
+      "Empresa basada en publicidad en pantallas publicitarias. Desarrollo sistemas integrados con SAP Business One junto a un equipo de 4 programadores. Se me asignó Panamá como encargado de la supervisión de nuestros sistemas, y actúo como respaldo para los sistemas de Perú.",
     description:
-      "En Grupo ALAC formo parte de un equipo de 5 programadores. Mi labor principal es desarrollar e integrar nuevos sistemas con SAP Business One.\n\nMis funciones actuales:\n• Desarrollo de sistemas integrados con SAP Business One\n• Trabajo colaborativo con SAP HANA Studio para gestión de datos\n• Reuniones con directivos de las diferentes áreas para levantar requerimientos\n• Migración de historial de usuarios hacia los nuevos sistemas\n• Desarrollo frontend con Angular 18+\n• Desarrollo backend con Node.js",
+      "Grupo ALAC es una empresa basada en publicidad en pantallas publicitarias. Opera en Panamá, Ecuador, Perú y Bolivia. Formo parte de un equipo de 5 programadores y mi labor principal es desarrollar e integrar nuevos sistemas con SAP Business One.\n\nMis funciones actuales:\n• Desarrollo de sistemas integrados con SAP Business One\n• Manejo del servidor de SAP Business One\n• Trabajo colaborativo con SAP HANA Studio para gestión de datos\n• Coordinación con gerencias y usuarios para crear sistemas que mejoren la gestión del personal y los recursos\n• Reuniones con directivos de las diferentes áreas para levantar requerimientos\n• Migración de historial de usuarios hacia los nuevos sistemas\n• Desarrollo frontend con Angular 18+\n• Desarrollo backend con Node.js\n• Encargado del área de TI de una sede completa de la empresa\n• Encargado de la supervisión de nuestros sistemas en Panamá\n• Respaldo para los sistemas de Perú\n• Optimización de código\n• Innovación de los sistemas actuales y de los nuevos",
     technologies: ["Node.js", "SAP Business One", "SAP HANA Studio", "Angular 18+", "MySQL"],
     images: [],
+    countries: [
+      { flag: "🇵🇦", name: "Panamá" },
+      { flag: "🇪🇨", name: "Ecuador" },
+      { flag: "🇵🇪", name: "Perú" },
+      { flag: "🇧🇴", name: "Bolivia" },
+    ],
   },
   {
     id: "villasalud",

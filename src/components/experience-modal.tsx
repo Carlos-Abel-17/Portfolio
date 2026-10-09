@@ -35,6 +35,15 @@ export function ExperienceModal({
             {" · "}
             {experience.period}
           </DialogDescription>
+          {experience.countries && experience.countries.length > 0 && (
+            <p className="flex flex-wrap gap-2 pt-2 text-xl leading-none" aria-label="Países">
+              {experience.countries.map((country) => (
+                <span key={country.name} role="img" aria-label={country.name} title={country.name}>
+                  {country.flag}
+                </span>
+              ))}
+            </p>
+          )}
         </DialogHeader>
 
         <div className="space-y-6">

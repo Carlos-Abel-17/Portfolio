@@ -36,6 +36,15 @@ export function ExperienceCard({ experience, onClick }: ExperienceCardProps) {
               {experience.company}
               {experience.companySubtitle && ` - ${experience.companySubtitle}`}
             </CardDescription>
+            {experience.countries && experience.countries.length > 0 && (
+              <p className="mt-2 flex flex-wrap gap-2 text-xl leading-none" aria-label="Países">
+                {experience.countries.map((country) => (
+                  <span key={country.name} role="img" aria-label={country.name} title={country.name}>
+                    {country.flag}
+                  </span>
+                ))}
+              </p>
+            )}
           </div>
           <Badge variant="secondary" className="shrink-0">
             {experience.period}
